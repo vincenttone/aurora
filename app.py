@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
 from flask import Flask
-from flask import request as request
-from src.app.article import Article
+from flask import request
+from aurora.app.article import Article as AppArticle
 
 app = Flask(__name__)
 
@@ -13,7 +13,7 @@ def au_entry():
 @app.route('/article/<action>')
 def au_article(action):
     if request.method == 'GET':
-        article = Article()
+        article = AppArticle()
         aid = action
         return article.set_id(aid).get_content()
     else:
