@@ -2,7 +2,7 @@
 #-*- coding:utf-8 -*-
 from flask import Flask
 from flask import request
-from aurora.app.article import Article as AppArticle
+from aurora.app.article import Article
 
 app = Flask(__name__)
 
@@ -13,9 +13,9 @@ def au_entry():
 @app.route('/article/<action>')
 def au_article(action):
     if request.method == 'GET':
-        article = AppArticle()
+        article = Article()
         aid = action
-        return article.set_id(aid).get_content()
+        return article.get_article_by_id(aid)
     else:
         return action
 
