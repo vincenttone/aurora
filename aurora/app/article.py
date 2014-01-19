@@ -9,7 +9,10 @@ class Article():
 
     def get_article_by_id(self, id):
         article = ArticleModel()
-        return article.set_id(id).get_content()
+        if article.set_id(id).get():
+            return article
+        else:
+            return None
 
     def get_articles(self, page=1, count=10):
         acticles = AtcileModel()
@@ -20,4 +23,3 @@ class Article():
         acticle = ArticleModel()
         acticle.set_article( {'id':id,'title':title,'alias':alias,'content':content})
         return acticle.save()
-    
