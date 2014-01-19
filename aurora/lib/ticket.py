@@ -1,10 +1,14 @@
+import os
 import redis
 from helper import singleton
 
 @singleton
 class Ticket:
     def get_ticket(self):
-        lua_file = open('ticket.lua', 'r')
+        lua_file_path = os.path.dirname(os.path.abspath(__file__))
+        print lua_file_path
+        lua_file_path = lua_file_path + '/' + 'ticket.lua'
+        lua_file = open(lua_file_path, 'r')
         ticket_lua = lua_file.read()
         lua_file.close()
         r = redis.StrictRedis(host='127.0.0.1', port=6379, db=0)
