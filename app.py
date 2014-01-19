@@ -20,6 +20,8 @@ def au_artile_create():
     title = request.form['title']
     alias = request.form['alias']
     content = request.form['content']
+    article = Article()
+    article.create(title,alias,content)
     return content
     
 

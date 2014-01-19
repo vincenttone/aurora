@@ -14,9 +14,8 @@ class Article():
         acticles = AtcileModel()
         return articles
 
-    def create_article(self):
-        a = ArtilceModel()
-        a.title = aaa
-        a.content =aaa
-        a.save()
+    def create_article(self,title,alias,content):
+        acticle = ArtilceModel()
+        acticle.set_article( {'id':1,'title':title,'alias':alias,'content':conent})
+        return acticle.save()
     
