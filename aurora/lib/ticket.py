@@ -1,4 +1,7 @@
 import redis
+from helper import singleton
+
+@singleton
 class Ticket:
     def get_ticket(self):
         lua_file = open('ticket.lua', 'r')
