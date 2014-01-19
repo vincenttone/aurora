@@ -10,12 +10,11 @@ app = Flask(__name__)
 def au_entry():
     return '项目首页'
 
-@app.route('/article/<action>')
-def au_article(action):
+@app.route('/article/<id>'
+def au_article(id):
     if request.method == 'GET':
         article = Article()
-        aid = action
-        return article.get_article_by_id(aid)
+        return article.get_article_by_id(id)
     else:
         return action
 
