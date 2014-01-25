@@ -1,26 +1,21 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
 from flask import Flask
-from flask import request, redirect, url_for
+from flask import request, redirect, url_for, render_template
 from aurora.app.article import Article
-from aurora.app.listBox import ListBox
 
 app = Flask(__name__)
 
 @app.route('/')
 def au_entry():
-    return '项目首页'
-
-#首页入口文件
-@app.route('/listBox/index',methods=['GET'])
-def au_listBox_entry():
-    listbox = ListBox
-    return listbox.new()
+    a = Article()
+    articles = a.get_articles()
+    print articles
+    return '首页'
 
 @app.route('/article/new', methods=['GET'])
 def au_artile_new():
-    article = Article()
-    return article.new()
+    return render_template('article/edit.html')
 
 @app.route('/article/<id>', methods=['GET'])
 def au_article_get_by_id(id):
@@ -41,4 +36,4 @@ def au_artile_create():
     return redirect(url_for('au_article_get_by_id', id=a.get_id()))
 
 if __name__ == '__main__':
-app.run(debug=True)
+    app.run(debug=True)

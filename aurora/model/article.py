@@ -1,6 +1,5 @@
 #-*- coding:utf-8 -*-
 from base import Base
-from base import render_template
 
 class Article(Base):
     prefix = 'article'
@@ -47,6 +46,7 @@ class Article(Base):
         }
         data = self.pack_json(article)
         self.redis.set(self.key, data)
+        self.redis.rpush('article-id-list', str(self.id))
         return self
 
     def get(self):

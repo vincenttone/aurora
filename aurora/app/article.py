@@ -2,6 +2,7 @@
 from flask import render_template
 from aurora.model.article import Article as ArticleModel
 from aurora.lib.ticket import Ticket
+from aurora.model.articles import Articles as ArticlesModel
 
 class Article():
     def new(self):
@@ -15,7 +16,8 @@ class Article():
             return None
 
     def get_articles(self, page=1, count=10):
-        acticles = AtcileModel()
+        am = ArticlesModel()
+        articles = am.get_articles(page, count)
         return articles
 
     def create(self,title,alias,content):
