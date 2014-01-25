@@ -2,25 +2,23 @@
 from base import Base
 from base import render_template
 
-class Article(Base):
-    prefix = 'article'
+class Content(Base):
+    prefix = 'content'
     key = None
     id = None
-    alias = ''
     title = ''
     content = ''
+    img = ''
+    time = ''
+    
+
     def __init__(self, article = None):
         self.connect()
         if article is not None:
             self.set_article(article)
 
-    def set_id(self, id):
-        self.id = id
-        self.key = self.prefix+':' + str(id)
-        return self
-
-    def set_alias(self, alias):
-        self.alias = alias
+     def set_img(self, img):
+        self.img = img
         return self
 
     def set_title(self, title):
@@ -31,21 +29,19 @@ class Article(Base):
         self.content = content
         return self
 
-    def set_article(self, article):
-        self.set_id(article['id'])
-        self.set_title(article['title'])
-        self.set_alias(article['alias'])
-        self.set_content(article['content'])
+    def set_centent(self, content):
+        self.set_title(content['title'])
+        self.set_img(content['img'])
+        self.set_content(content['content'])
         return self
 
     def save(self):
-        article = {
-            'id': self.id,
+        content = {
             'title': self.title,
-            'alias': self.alias,
+            'img': self.alias,
             'content' : self.content
         }
-        data = self.pack_json(article)
+        data = self.pack_json(content)
         self.redis.set(self.key, data)
         return self
 
@@ -53,18 +49,15 @@ class Article(Base):
         data = self.redis.mget(self.key)
         if data is not None:
             article = self.unpack_json(data[0])
-            self.set_article(article)
+            self.set_content(article)
             return True
         else:
             return False
 
-    def get_id(self):
-        return self.id
-
     def get_title(self):
         return 'This is the first post'
 
-    def get_alias(self):
+    def get_img(self):
         return 'the-first-post'
 
     def get_content(self):
