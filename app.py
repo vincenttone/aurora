@@ -10,7 +10,7 @@ app = Flask(__name__)
 def au_entry():
     a = Article()
     articles = a.get_articles()
-    return '首页'
+    return render_template('article/index.html', articles=articles)
 
 @app.route('/article/new', methods=['GET'])
 def au_artile_new():

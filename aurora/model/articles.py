@@ -18,7 +18,7 @@ class Articles(Base):
             keys.append('article:' + str(id))
         #articles = getattr(self.redis, 'mget', keys)
         if (len(keys) == 0):
-            return None
+            return keys
         else:
             articles = self.redis.mget(*keys)
 

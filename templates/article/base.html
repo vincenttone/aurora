@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% block head %}
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="./css/main.css"/>
+    <script type="text/javascript" src="http://mat1.gtimg.com/dyaio/js/r_dy/jquery-1.10.2.min.js"></script>
+    {% endblock %}
+  </head>
+  <body>
+    <div class = "main">
+      {% block body %}
+      <div id="J_Nav" class="nav" style="top: 0px;">
+	{% block nav %}
+	<!-- #nav -->
+	<a class="ued-logo" href="http://ued.taobao.org/blog/" target="_self">
+	</a>
+	<div class="nav-menu">
+	  <div id="J_NavLabel" class="nav-label" style="top: 0px; display: block; transition: none; -webkit-transition: none;">
+	    <span></span>
+	  </div>
+	  <ul id="menu-primary" class="menu">
+	    <li id="menu-item-15" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-15">
+	      <a href="">首页</a>
+	    </li>
+	    <li id="menu-item-8856" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-8856"><a href="http://ued.taobao.org/blog/?cat=8">博文</a>
+	      <ul class="sub-menu">
+		<li id="menu-item-8858" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8858">
+		  <a href="http://ued.taobao.org/blog/?cat=30">前端技术</a>
+		</li>
+		<li id="menu-item-8861" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8861">
+		  <a href="http://ued.taobao.org/blog/?cat=7">交互设计</a>
+		</li>
+		<li id="menu-item-8859" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8859">
+		  <a href="http://ued.taobao.org/blog/?cat=37">用户研究</a>
+		</li>
+		<li id="menu-item-8862" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8862"><a href="http://ued.taobao.org/blog/?cat=1">团队生活</a></li>
+	      </ul>
+	    </li>
+	    <li id="menu-item-8386" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8386">
+	      <a href="http://ued.taobao.org/blog/?page_id=8384">交流会</a>
+	    </li>
+	    <li id="menu-item-77" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-77"><a href="http://ued.taobao.org/blog/?page_id=75">关于我们</a></li>
+	  </ul>	
+	</div>
+	<!-- END #nav -->
+	{% endblock %}
+      </div>
+      <div id = "content" class="clearfix">
+	{% block content %}
+	{% endblock %}
+      </div>
+      {% endblock %}
+    </div>
+  </body>
+</html>
