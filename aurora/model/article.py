@@ -1,5 +1,5 @@
 #-*- coding:utf-8 -*-
-from base import Base
+from aurora.model.base import Base
 
 class Article(Base):
     prefix = 'article'
@@ -80,5 +80,5 @@ if __name__ == '__main__':
     }
     article = Article(a).save()
     x = article.get()
-    print x
-    print article.content
+    print(x)
+    print(article.content)

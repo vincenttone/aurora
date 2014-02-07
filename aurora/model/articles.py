@@ -1,5 +1,5 @@
 #-*- coding:utf-8 -*-
-from base import Base
+from aurora.model.base import Base
 
 class Articles(Base):
     def __init__(self):
