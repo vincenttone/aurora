@@ -9,8 +9,8 @@ app = Flask(__name__)
 @app.route('/')
 def au_entry():
     a = Article()
-    print a
     articles = a.get_articles()
+    print articles
     return render_template('article/index.html', articles=articles)
 
 @app.route('/article/new', methods=['GET'])
