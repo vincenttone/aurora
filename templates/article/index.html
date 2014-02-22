@@ -1,4 +1,20 @@
 {% extends "article/base.html" %}
+<<<<<<< HEAD
+=======
+{% block content %}
+<ul>
+  {% for article in articles %}
+  <li>
+	<article id="{{article.id}}">
+	  {{ article.title }}
+	  {{ article.content}}
+	</article>
+  </li>
+  {% else %}
+  no articles.
+  {% endfor %}
+</ul>
+>>>>>>> 6ff9e4972cfa96766e40a9ba46ffc229e1e42f4a
 <!-- #right -->
 <div class="col-right">
   <!-- #content -->
