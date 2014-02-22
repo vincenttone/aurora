@@ -50,9 +50,9 @@ class Article(Base):
         return self
 
     def get(self):
-        data = self.redis.mget(self.key)
+        data = self.redis.get(self.key)
         if data is not None:
-            article = self.unpack_json(data[0])
+            article = self.unpack_json(data)
             self.set_article(article)
             return True
         else:

@@ -1,10 +1,17 @@
 {% extends "article/base.html" %}
 {% block content %}
-{% for article in articles %}
-{% else %}
-no articles.
-{{ article.title }}
-{% endfor %}
+<ul>
+  {% for article in articles %}
+  <li>
+	<article id="{{article.id}}">
+	  {{ article.title }}
+	  {{ article.content}}
+	</article>
+  </li>
+  {% else %}
+  no articles.
+  {% endfor %}
+</ul>
 <!-- #right -->
 <div class="col-right">
   <!-- #content -->

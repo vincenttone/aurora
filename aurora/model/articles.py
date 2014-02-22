@@ -14,13 +14,14 @@ class Articles(Base):
     def get_articles(self, page = 1, count = 10):
         ids = self.get_ids(page, count)
         keys = []
+        articles = []
         for id in ids:
             keys.append('article:' + str(id))
-        #articles = getattr(self.redis, 'mget', keys)
         if (len(keys) == 0):
             return keys
         else:
-            articles = self.redis.mget(*keys)
-
+            for data in self.redis.mget(*keys):
+                articles.append(self.unpack_json(data))
+            
         return articles
 
