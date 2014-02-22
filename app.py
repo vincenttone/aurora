@@ -4,17 +4,18 @@ from flask import Flask
 from flask import request, redirect, url_for, render_template
 from aurora.app.article import Article
 
+au_temp = "default"
 app = Flask(__name__)
 
 @app.route('/')
 def au_entry():
     a = Article()
     articles = a.get_articles()
-    return render_template('article/index.html', articles=articles)
+    return render_template(au_temp + '/article/index.html', articles=articles)
 
 @app.route('/article/new', methods=['GET'])
 def au_artile_new():
-    return render_template('article/edit.html')
+    return render_template(au_temp + '/article/edit.html')
 
 @app.route('/article/<id>', methods=['GET'])
 def au_article_get_by_id(id):
