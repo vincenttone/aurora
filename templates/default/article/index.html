@@ -11,13 +11,12 @@
       <li class="post-{{article.id}} post type-post status-publish format-standard hentry category-teams" data-id="{{article.id}}">
 		<div class="post-snapshoot">  
 		  <i class="slide-bg" style="transition: none; -webkit-transition: none; height: 150px;"></i>
-		  <a class="post-thumb" href="" target="_self" rel="bookmark" style="transition: none; -webkit-transition: none; height: 150px;">
+		  <a class="post-thumb" href="{{ url_for('au_article_get_by_id', id = article.id)}}" target="_blank" rel="bookmark" style="transition: none; -webkit-transition: none; height: 150px;">
 		    <img width="280" height="150" class="attachment-thumb-pc wp-post-image" alt="928-280x150" src="http://ued.taobao.org/blog/wp-content/uploads/2014/01/928-280x150.jpg" id="ks-lazyload65">
 		  </a> 
 		</div>
-		<a class="post-title" href="{{ url_for('au_article_get_by_id', id = article.id)}}" target="_self"
-	       title="" rel="bookmark">
-	      {{ article.title }}
+		<a class="post-title" href="{{ url_for('au_article_get_by_id', id = article.id)}}" target="_blank" title="" rel="bookmark">
+	      {{ article.content }}
 		</a>
 		<div class="post-extra">
 		  <span class="post-date">
